@@ -213,7 +213,7 @@ def main():
 
     profile = credentials.get(args.profile)
 
-    sys.stdout.write(profile.format(export=not args.no_export) + "\n")
+    sys.stdout.buffer.write(str(profile.format(export=not args.no_export).replace('\r','') + "\n").encode("utf-8") )
     sys.stdout.flush()
 
 
